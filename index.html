@@ -7,20 +7,55 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="css/positioning.css">
 </head>
 <body>
   <script type="text/x-handlebars">
     <h2>User List</h2>
-    <button type="button" class="btn btn-primary">Add User</button>
+
+    <div class="row">
+      <div class="col-md-4">
+        <form role="form">
+          <div class="form-group">
+           <label for="filter">filter</label>
+           <input type="text" class="form-control" id="filterUserInput" placeholder="enter user name here">
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">Showing</div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary">Add User</button>
+        </div>
+    </div>
+
     {{outlet}}
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <ul>
+
+    <div id="userTableHeader">
+      <div class="col-md-1 bg-primary">Last Name</div>
+      <div class="col-md-2 bg-primary">First Name</div>
+      <div class="col-md-1 bg-primary">Age</div>
+      <div class="col-md-3 bg-primary">Email</div>
+      <div class="col-md-2 bg-primary">Created on</div>
+      <div class="col-md-2 bg-primary">Last edited</div>
+      <div class="col-md-1 bg-primary">Active</div>
+    </div>
+
+
     {{#each user in model}}
-      <li>{{user.firstName}} {{user.lastName}}</li>
+      <div class="col-md-1">{{user.firstName}}</div>
+      <div class="col-md-2">{{user.firstName}}</div>
+      <div class="col-md-1">{{user.age}}</div>
+      <div class="col-md-3">{{user.email}}</div>
+      <div class="col-md-2">{{user.createdOn}}</div>
+      <div class="col-md-2">{{user.lastEdited}}</div>
+      <div class="col-md-1">{{user.active}}</div>
     {{/each}}
-    </ul>
+
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
