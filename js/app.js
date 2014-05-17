@@ -1,4 +1,7 @@
-App = Ember.Application.create();
+
+	window.App = Ember.Application.create();
+
+App.ApplicationAdapter = DS.FixtureAdapter;
 
 App.Router.map(function() {
   // put your routes here
@@ -6,6 +9,6 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
   model: function() {
-    return ['red', 'yellow', 'blue'];
+    return this.store.find('user'); 
   }
 });

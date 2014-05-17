@@ -1,17 +1,17 @@
-APP.User = Ember.Model.extend({
+App.User = DS.Model.extend({
 
-	lastName: attr('string'),
+	lastName: DS.attr('string'),
 
-	firstName: attr('string'),
+	firstName: DS.attr('string'),
 
-	age: attr('number'),
+	age: DS.attr('number'),
 
-	email: attr('string'),
+	email: DS.attr('string'),
 
-	createdOn: attr('date'),
+	createdOn: DS.attr('date'),
 
-	lastEdited: attr('date'),
+	lastEdited: DS.attr('date'),
 
-	active: attr('boolean')
+	active: DS.attr('boolean')
 
 });
