@@ -8,3 +8,11 @@
     border-width: 1px;
     border-style:solid;
 }
+
+.not-editing {
+    display: none;
+}
+
+.editing {
+    display: block;
+}

@@ -106,26 +106,33 @@
                 {{#each user in model itemController="userItem"}}
                 {{#unless content.isNew}}
                     {{#if inEditMode}}
-                        <tr>
-                            <td>{{input type="text" value=content.firstName size="30"}}</td>
-                            <td>{{input type="text" value=content.lastName size="30"}}</td>
-                            <td>{{input type="text" value=content.age size="3"}}</td>
-                            <td>{{input type="email" value=content.email size="50"}}</td>
-                            <td>{{content.createdOn}}</td>
-                            <td>{{content.lastEdited}}</td>
-                            <td>{{input type="checkbox" checked=content.active}}</td>
-                        </tr>
+                    <tr>
+                        <td>{{input type="text" value=content.firstName size="15"}}</td>
+                        <td>{{input type="text" value=content.lastName size="15"}}</td>
+                        <td>{{input type="text" value=content.age size="3"}}</td>
+                        <td>{{input type="email" value=content.email size="35"}}</td>
+                        <td>{{formatDate content.createdOn}}</td>
+                        <td>{{formatDate content.lastEdited}}</td>
+                        <td>{{input type="checkbox" checked=content.active}}
+                            <button type="button" {{bind-attr class=":btn :btn-success :btn-xs inEditMode:editing:not-editing"}} {{action "saveChange"}}>Save</button>
+                            <button type="button" {{bind-attr class=":btn :btn-danger :btn-xs inEditMode:editing:not-editing"}} {{action "discardChange"}}>Discard</button>
+                        </td>
+                    </tr>
                     {{else}}
-                        <tr {{action "toggleEditMode"}}>
-                            <td>{{content.firstName}}</td>
-                            <td>{{content.lastName}}</td>
-                            <td>{{content.age}}</td>
-                            <td>{{content.email}}</td>
-                            <td>{{formatDate content.createdOn}}</td>
-                            <td>{{formatDate content.lastEdited}}</td>
-                            <td>{{content.active}}</td>
-                        </tr>
+                    <tr {{action "toggleEditMode"}}>
+                        <td>{{content.firstName}}</td>
+                        <td>{{content.lastName}}</td>
+                        <td>{{content.age}}</td>
+                        <td>{{content.email}}</td>
+                        <td>{{formatDate content.createdOn}}</td>
+                        <td>{{formatDate content.lastEdited}}</td>
+                        <td>{{content.active}}
+                            <button type="button" {{bind-attr class=":btn :btn-success :btn-xs inEditMode:editing:not-editing"}} {{action "saveChange"}}>Save</button>
+                            <button type="button" {{bind-attr class=":btn :btn-danger :btn-xs inEditMode:editing:not-editing"}} {{action "discardChange"}}>Discard</button>
+                        </td>
+                    </tr>
                     {{/if}}
+
                 {{/unless}}
                 {{/each}}
             </tbody>
