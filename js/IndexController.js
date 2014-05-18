@@ -22,7 +22,7 @@ App.IndexController = Ember.Controller.extend({
 
             if(!newUser.get('lastName') || !newUser.get('firstName') || !newUser.get('email')){
                 this.set('hasError', true);
-                this.set('errorMessage', "Oh snap! You need to enter all required fields to save");
+                this.set('errorMessage', "Oh snap! You need to enter all required fields to save.");
                 return;
             }
 
@@ -37,8 +37,9 @@ App.IndexController = Ember.Controller.extend({
                     self.set('newUser', null);
                     self.clearError();
                 })
-                ['catch'](function(){
-
+                ['catch'](function(e){
+                    self.set('hasError', true);
+                    self.set('errorMessage', "Oh snap! Some unexpected error happened.");
                 });
         },
 
