@@ -38,6 +38,7 @@ App.UserItemController = Ember.Controller.extend({
             this.get('model').rollback();
 
             this.get('parentController').send('onClearError');
+
         }
     }
 

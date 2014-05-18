@@ -10,6 +10,8 @@ App.IndexController = Ember.Controller.extend({
 
     sortBy: "lastName",
 
+    hasNewChange: false,
+
     sortByLastName: function(){
         return this.get('sortBy') === 'lastName';
     }.property('sortBy'),
@@ -32,6 +34,17 @@ App.IndexController = Ember.Controller.extend({
         return this.get('sortBy') === 'active';
     }.property('sortBy'),
 
+    onUnsavedChange: function(){
+        var hasUnsavedChild = this.get('model').any(function(u){
+            return u.get('isDirty');
+        });
+        if(hasUnsavedChild || this.get('hasNewChange')){
+            App.set('hasUnsavedChange', true);
+        }else{
+            App.set('hasUnsavedChange', false);
+        }
+    }.observes('model.@each.isDirty', 'hasNewChange'),
+
     actions: {
 
         onError: function(errorMessage){
@@ -42,11 +55,13 @@ App.IndexController = Ember.Controller.extend({
             this.clearError();
         },
 
+
         createUser: function(){
             this.set('creatingMode', true);
             var newUser = this.store.createRecord('user', {});
 
             this.set('newUser', newUser);
+            this.set('hasNewChange', true);
         },
 
         saveNew: function(){
@@ -72,6 +87,8 @@ App.IndexController = Ember.Controller.extend({
                 ['catch'](function(e){
                     self.setError("Oh snap! Some unexpected error happened.");
                 });
+
+            this.set('hasNewChange', false);
         },
 
         discardNew: function(){
@@ -80,6 +97,7 @@ App.IndexController = Ember.Controller.extend({
             this.set('creatingMode', false);
             this.set('newUser', null);
             this.clearError();
+            this.set('hasNewChange', false);
         },
 
         sortBy: function(sortBy){

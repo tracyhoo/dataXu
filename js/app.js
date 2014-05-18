@@ -2,6 +2,8 @@ App = Ember.Application.create();
 
 App.ApplicationAdapter = DS.FixtureAdapter;
 
+App.set('hasUnsavedChange', false);
+
 App.Router.map(function() {
     // put your routes here
 });
@@ -13,6 +15,12 @@ App.IndexRoute = Ember.Route.extend({
 
     setupController: function(controller, model) {
         controller.set('model', model);
-        controller.set("title", "hello");
+    }
+
+});
+
+$(window).on('beforeunload', function () {
+    if (App.get('hasUnsavedChange')) {
+        return 'You haven\'t saved your changes.';
     }
 });
