@@ -69,6 +69,7 @@
                     </tr>
                 {{/if}}
                 {{#each user in model itemController="userItem"}}
+                {{#unless content.isNew}}
                     {{#if inEditMode}}
                         <tr>
                             <td>{{input type="text" value=content.firstName size="30"}}</td>
@@ -90,7 +91,7 @@
                             <td>{{content.active}}</td>
                         </tr>
                     {{/if}}
-
+                {{/unless}}
                 {{/each}}
             </tbody>
         </table>

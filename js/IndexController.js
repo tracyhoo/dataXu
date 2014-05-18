@@ -45,8 +45,11 @@ App.IndexController = Ember.Controller.extend({
         },
 
         discardNew: function(){
+            var newUser = this.get('newUser');
+            newUser.deleteRecord();
             this.set('creatingMode', false);
             this.set('newUser', null);
+            this.clearError();
         }
     },
 
