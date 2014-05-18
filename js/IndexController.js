@@ -34,6 +34,14 @@ App.IndexController = Ember.Controller.extend({
 
     actions: {
 
+        onError: function(errorMessage){
+            this.setError(errorMessage);
+        },
+
+        onClearError: function(){
+            this.clearError();
+        },
+
         createUser: function(){
             this.set('creatingMode', true);
             var newUser = this.store.createRecord('user', {});
@@ -46,8 +54,7 @@ App.IndexController = Ember.Controller.extend({
             var newUser = this.get('newUser');
 
             if(!newUser.get('lastName') || !newUser.get('firstName') || !newUser.get('email')){
-                this.set('hasError', true);
-                this.set('errorMessage', "Oh snap! You need to enter all required fields to save.");
+                this.setError("Oh snap! You need to enter all required fields to save.");
                 return;
             }
 
@@ -63,8 +70,7 @@ App.IndexController = Ember.Controller.extend({
                     self.clearError();
                 })
                 ['catch'](function(e){
-                    self.set('hasError', true);
-                    self.set('errorMessage', "Oh snap! Some unexpected error happened.");
+                    self.setError("Oh snap! Some unexpected error happened.");
                 });
         },
 
@@ -82,6 +88,11 @@ App.IndexController = Ember.Controller.extend({
             this.set('model', model);
             this.set('sortBy', sortBy);
         }
+    },
+
+    setError: function(errorMessage){
+        this.set('hasError', true);
+        this.set('errorMessage', errorMessage);
     },
 
     clearError: function(){
