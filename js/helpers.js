@@ -1,3 +1,3 @@
-Ember.Handlebars.registerBoundHelper('formatDate', function() {
-    return moment().format('MMMM Do YYYY, h:mm:ss a');
+Ember.Handlebars.registerBoundHelper('formatDate', function(date) {
+    return moment(date).format('MMMM Do YYYY, h:mm:ss a');
 });

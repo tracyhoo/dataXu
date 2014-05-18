@@ -10,9 +10,9 @@ App.User.FIXTURES = [
 
 	email: 'mabram@example.com',
 
-	createdOn: '2014-05-16',
+	createdOn: '2014-05-16 00:00:00',
 
-	lastEdited: '2014-05-16',
+	lastEdited: '2014-05-16 00:00:00',
 
 	active:true
  },
@@ -28,9 +28,9 @@ App.User.FIXTURES = [
 
 	email: 'kfenelly@example.com',
 
-	createdOn: '2014-05-16',
+	createdOn: '2014-05-16 00:00:00',
 
-	lastEdited: '2014-05-16',
+	lastEdited: '2014-05-16 00:00:00',
 
 	active:true
  },
@@ -46,9 +46,9 @@ App.User.FIXTURES = [
 
 	email: 'jprerry@example.com',
 
-	createdOn: '2014-05-16',
+	createdOn: '2014-05-16 00:00:00',
 
-	lastEdited: '2014-05-16',
+	lastEdited: '2014-05-16 00:00:00',
 
 	active:true
  },
@@ -64,9 +64,9 @@ App.User.FIXTURES = [
 
 	email: 'ndeguerre@example.com',
 
-	createdOn: '2014-05-16',
+	createdOn: '2014-05-16 00:00:00',
 
-	lastEdited: '2014-05-16',
+	lastEdited: '2014-05-16 00:00:00',
 
 	active:false
  }

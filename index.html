@@ -85,8 +85,8 @@
                             <td>{{content.lastName}}</td>
                             <td>{{content.age}}</td>
                             <td>{{content.email}}</td>
-                            <td>{{content.createdOn}}</td>
-                            <td>{{content.lastEdited}}</td>
+                            <td>{{formatDate content.createdOn}}</td>
+                            <td>{{formatDate content.lastEdited}}</td>
                             <td>{{content.active}}</td>
                         </tr>
                     {{/if}}

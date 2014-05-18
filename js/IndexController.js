@@ -9,6 +9,7 @@ App.IndexController = Ember.Controller.extend({
     newUser: null,
 
     actions: {
+
         createUser: function(){
             this.set('creatingMode', true);
             var newUser = this.store.createRecord('user', {});
