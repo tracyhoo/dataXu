@@ -8,6 +8,30 @@ App.IndexController = Ember.Controller.extend({
 
     newUser: null,
 
+    sortBy: "lastName",
+
+    sortByLastName: function(){
+        return this.get('sortBy') === 'lastName';
+    }.property('sortBy'),
+    sortByFirstName: function(){
+        return this.get('sortBy') === 'firstName';
+    }.property('sortBy'),
+    sortByAge: function(){
+        return this.get('sortBy') === 'age';
+    }.property('sortBy'),
+    sortByEmail: function(){
+        return this.get('sortBy') === 'email';
+    }.property('sortBy'),
+    sortByCreatedOn: function(){
+        return this.get('sortBy') === 'createdOn';
+    }.property('sortBy'),
+    sortByLastEdited: function(){
+        return this.get('sortBy') === 'lastEdited';
+    }.property('sortBy'),
+    sortByActive: function(){
+        return this.get('sortBy') === 'active';
+    }.property('sortBy'),
+
     actions: {
 
         createUser: function(){
@@ -50,6 +74,13 @@ App.IndexController = Ember.Controller.extend({
             this.set('creatingMode', false);
             this.set('newUser', null);
             this.clearError();
+        },
+
+        sortBy: function(sortBy){
+            var model = this.get('model');
+            model = model.sortBy(sortBy);
+            this.set('model', model);
+            this.set('sortBy', sortBy);
         }
     },
 

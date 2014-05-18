@@ -42,13 +42,48 @@
         <table class="table table-striped table-hover">
             <thead class="user-table-header">
                 <tr>
-                    <td><strong>Last Name*</strong></td>
-                    <td><strong>First Name*</strong></td>
-                    <td><strong>Age</strong></td>
-                    <td><strong>Email*</strong></td>
-                    <td><strong>Created on</strong></td>
-                    <td><strong>Last edited</strong></td>
-                    <td><strong>Active</strong></td>
+                    <td {{action "sortBy" "lastName"}}>
+                    <strong>Last Name*</strong>
+                    {{#if sortByLastName}}
+                        <span class="caret"></span>
+                    {{/if}}
+                    </td>
+                    <td {{action "sortBy" "firstName"}}>
+                    <strong>First Name*</strong>
+                    {{#if sortByFirstName}}
+                    <span class="caret"></span>
+                    {{/if}}
+                    </td>
+                    <td {{action "sortBy" "age"}}>
+                    <strong>Age</strong>
+                    {{#if sortByAge}}
+                    <span class="caret"></span>
+                    {{/if}}
+                    </td>
+                    <td {{action "sortBy" "email"}}>
+                    <strong>Email*</strong>
+                    {{#if sortByEmail}}
+                    <span class="caret"></span>
+                    {{/if}}
+                    </td>
+                    <td {{action "sortBy" "createdOn"}}>
+                    <strong>Created on</strong>
+                    {{#if sortByCreatedOn}}
+                    <span class="caret"></span>
+                    {{/if}}
+                    </td>
+                    <td {{action "sortBy" "lastEdited"}}>
+                    <strong>Last edited</strong>
+                    {{#if sortByLastEdited}}
+                    <span class="caret"></span>
+                    {{/if}}
+                    </td>
+                    <td {{action "sortBy" "active"}}>
+                    <strong>Active</strong>
+                    {{#if sortByActive}}
+                    <span class="caret"></span>
+                    {{/if}}
+                    </td>
                 </tr>
             </thead>
 
