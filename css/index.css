@@ -1,0 +1,15 @@
+#userTableHeader {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.userRow {
+	padding-top: 55px;
+	padding-bottom: 5px;
+}
+
+
+
+.userRow:nth-child(odd) {
+    background: #e0e0e0;
+}
