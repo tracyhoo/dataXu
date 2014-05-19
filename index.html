@@ -25,8 +25,8 @@
         <div class="col-md-4">
             <form role="form">
                 <div class="form-group">
-                    <label for="filter">filter</label>
-                    <input type="text" class="form-control" id="filterUserInput" placeholder="enter user name here">
+                    {{input type="text" class="form-control" id="filterUserInput" placeholder="enter user name here" value=searchContext}}
+                    <button type="button" class="btn btn-primary pull-right" id="searchButton" {{action "search"}}>Search</button>
             </form>
         </div>
     </div>

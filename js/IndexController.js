@@ -12,6 +12,8 @@ App.IndexController = Ember.Controller.extend({
 
     hasNewChange: false,
 
+    searchContext: "",
+
     sortByLastName: function(){
         return this.get('sortBy') === 'lastName';
     }.property('sortBy'),
@@ -53,6 +55,28 @@ App.IndexController = Ember.Controller.extend({
 
         onClearError: function(){
             this.clearError();
+        },
+
+        search: function(){
+            var filterString = this.get('searchContext');
+            var self = this;
+            this.store.find('user').then(function(users){
+                if(filterString){
+                    filterString = filterString.toLowerCase();
+                    var model = users.filter(function(u){
+                        return (u.get('firstName').toLowerCase().indexOf(filterString) !== -1
+                            || u.get('lastName').toLowerCase().indexOf(filterString) !== -1
+                            || u.get('email').toLowerCase().indexOf(filterString) !== -1
+                            || u.get('age').toString().indexOf(filterString) !== -1
+                            || u.get('createdOn').toString().toLowerCase().indexOf(filterString)  !== -1
+                            || u.get('lastEdited').toString().toLowerCase().indexOf(filterString)  !== -1);
+                    });
+                    self.set('model', model);
+                }else{
+                    self.set('model', model);
+                }
+            });
+
         },
 
 
