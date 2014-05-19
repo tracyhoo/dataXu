@@ -39,6 +39,11 @@ App.UserItemController = Ember.Controller.extend({
 
             this.get('parentController').send('onClearError');
 
+        },
+
+        delete: function(){
+            var model = this.get('model');
+            model.deleteRecord();
         }
     }
 

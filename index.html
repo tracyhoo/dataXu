@@ -115,7 +115,9 @@
                         <td>{{formatDate content.lastEdited}}</td>
                         <td>{{input type="checkbox" checked=content.active}}
                             <button type="button" {{bind-attr class=":btn :btn-success :btn-xs inEditMode:editing:not-editing"}} {{action "saveChange"}}>Save</button>
-                            <button type="button" {{bind-attr class=":btn :btn-danger :btn-xs inEditMode:editing:not-editing"}} {{action "discardChange"}}>Discard</button>
+                            <button type="button" {{bind-attr class=":btn :btn-warning :btn-xs inEditMode:editing:not-editing"}} {{action "discardChange"}}>Discard</button>
+                            <button type="button" {{bind-attr class=":btn :btn-danger :btn-xs inEditMode:editing:not-editing"}} {{action "delete"}}>Delete</button>
+
                         </td>
                     </tr>
                     {{else}}
@@ -128,7 +130,9 @@
                         <td>{{formatDate content.lastEdited}}</td>
                         <td>{{content.active}}
                             <button type="button" {{bind-attr class=":btn :btn-success :btn-xs inEditMode:editing:not-editing"}} {{action "saveChange"}}>Save</button>
-                            <button type="button" {{bind-attr class=":btn :btn-danger :btn-xs inEditMode:editing:not-editing"}} {{action "discardChange"}}>Discard</button>
+                            <button type="button" {{bind-attr class=":btn :btn-warning :btn-xs inEditMode:editing:not-editing"}} {{action "discardChange"}}>Discard</button>
+                            <button type="button" {{bind-attr class=":btn :btn-danger :btn-xs inEditMode:editing:not-editing"}} {{action "delete"}}>Delete</button>
+
                         </td>
                     </tr>
                     {{/if}}
